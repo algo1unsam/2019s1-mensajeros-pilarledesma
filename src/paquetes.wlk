@@ -3,11 +3,11 @@ import destinos.*
 
 object paquete {
 	
-	var property mensajero
+	//var property mensajero
 	
 	var estaPago = false
 	
-	method puedeSerEntregado(destino){
+	method puedeSerEntregado(destino, mensajero){
 		return ((self.estaPago()) && (destino.dejaPasar(mensajero)))	
 	}
 	

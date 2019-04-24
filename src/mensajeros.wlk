@@ -4,9 +4,24 @@ import transportes.*
 
 
 object mensajeria {
-	method contratar(alguien) {
- //
- 	}
+
+	const mensajeros =[]
+	
+	method contratar(mensajero) { mensajeros.add(mensajero)}
+	
+	method despedir(mensajero) { mensajeros.remove(mensajero)} 	
+	
+	method despedirTodos(){ mensajeros.removeAll(mensajeros)} //mmmm dudoso
+	
+	method mensajeriaGrande(){ return ((mensajeros.size() > 2))}
+	
+	method devuelveTamanio(){return (mensajeros.size())}
+	
+	method puedeEntregarloElPrimero(destino){
+		return paquete.puedeSerEntregado(destino, mensajeros.first())
+	}
+	
+	
 }
 
 object neo{

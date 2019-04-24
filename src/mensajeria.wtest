@@ -17,19 +17,44 @@ test "Si neo es empleado, Hay un mensajero que puede enviar el paquete" {
 
 test "Roberto lleva un paquete pago en camion con acoplado"{
 	
-	paquete.mensajero(roberto)
+	
 	roberto.peso(90)
 	roberto.transporte(camion)
 	roberto.pesoTotal()
-	paquete.pagarPaquete()
+	paquete.pagarPaquete() 
 	
-	assert.equals(true, paquete.puedeSerEntregado(puenteDeBrooklyn))
+	assert.equals(true, paquete.puedeSerEntregado(puenteDeBrooklyn, roberto))
 }
 
 test "Neo con credito y paquete no pago"{
 	
-	paquete.mensajero(neo)
+	
 	neo.cargarCredito()	
 	
-	assert.equals(false, paquete.puedeSerEntregado(laMatrix))
+	assert.equals(false, paquete.puedeSerEntregado(laMatrix, neo))
 }
+
+test "RRHH"{
+	
+	mensajeria.contratar(chuck)
+	mensajeria.contratar(neo)
+	mensajeria.despedir(chuck)
+	mensajeria.contratar(roberto)
+	mensajeria.despedirTodos()
+	
+	assert.equals(0, mensajeria.devuelveTamanio())
+}
+
+test "Primer empleado puede entregar paquete"{
+	
+	paquete.pagarPaquete()
+	mensajeria.contratar(chuck)
+	mensajeria.contratar(neo)
+	
+	
+	assert.equals(true, mensajeria.puedeEntregarloElPrimero(laMatrix))
+}
+
+
+
+
