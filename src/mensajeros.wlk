@@ -17,11 +17,13 @@ object mensajeria {
 	
 	method devuelveTamanio(){return (mensajeros.size())}
 	
-	method puedeEntregarloElPrimero(destino){
-		return paquete.puedeSerEntregado(destino, mensajeros.first())
-	}
+	method puedeEntregarloElPrimero(destino){ return paquete.puedeSerEntregado(destino, mensajeros.first())}
 	
 	method pesoUltimoMensajero(){return mensajeros.last().pesoTotal()}
+	
+	method alMenosUnoPuedeEntregarlo(destino){
+		return (mensajeros.find{mensajero => paquete.puedeSerEntregado(destino, mensajero)})
+	}
 	
 }
 
