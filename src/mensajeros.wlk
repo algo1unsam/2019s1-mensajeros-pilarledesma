@@ -25,7 +25,18 @@ object mensajeria {
 		return (mensajeros.find{mensajero => paquete.puedeSerEntregado(destino, mensajero)})
 	}
 	
-}
+	method paqueteFacil(destino){
+		return (mensajeros.forEach{mensajero => paquete.puedeSerEntregado(destino, mensajero)})
+	}
+	
+	method quienPuedeEntregarlo(destino){
+		return mensajeros.map{mensajero => paquete.puedeSerEntregado(destino, mensajero)}
+		}
+		
+	method sobrepeso(){ return (mensajeros.prom{mensajero => mensajero.pesoTotal()} > 500)}
+		
+}	
+
 
 object neo{
 	
