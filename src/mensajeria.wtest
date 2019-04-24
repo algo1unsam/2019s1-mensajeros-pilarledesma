@@ -56,5 +56,14 @@ test "Primer empleado puede entregar paquete"{
 }
 
 
-
+test "Peso del ultimo mensajero"{
+	
+	roberto.peso(100)
+	roberto.transporte(bicicleta)
+	mensajeria.contratar(chuck)
+	mensajeria.contratar(neo)
+	mensajeria.contratar(roberto)
+	
+	assert.equals(roberto.pesoTotal(),mensajeria.pesoUltimoMensajero())
+}
 

@@ -21,6 +21,7 @@ object mensajeria {
 		return paquete.puedeSerEntregado(destino, mensajeros.first())
 	}
 	
+	method pesoUltimoMensajero(){return mensajeros.last().pesoTotal()}
 	
 }
 
